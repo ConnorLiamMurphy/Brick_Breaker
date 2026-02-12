@@ -2,13 +2,21 @@
 #define			__HPP_ENGINE__
 
 #include <SDL3/SDL.h>
+#include <SDL3/SDL_main.h>
 #include "game_objects.hpp"
 
 #define FPS 60
 #define MAX_EVENTS 128
 #define targetFrameTime 1000.0 / FPS
 
-class Scene;
+class Scene {
+	public:
+		void Scene();
+		void addObject(GameObject gameobject);
+		void updateScene(float deltaTime);
+		std::vector<GameObject> objects;
+		
+};
 
 // Singleton pattern to ensure we only have one
 // instance of Engine at a time.

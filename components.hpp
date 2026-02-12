@@ -3,7 +3,7 @@
 
 #include <functional>
 #include <SDL3/SDL.h>
-#include <glm/vec4.hpp>
+#include <SDL3/SDL_main.h>
 #include <unordered_map>
 
 class GameObject;
@@ -47,15 +47,5 @@ class SpriteComponent : public Component {
 		SDL_Texture* sprite = nullptr;
 };
 
-// Not used yet.  Will become more important
-// when we get to 3D.
-class TransformComponent : public Component {
-	public:
-		void update(float deltaTime) override;
-	private:
-		glm::vec4 position{};
-		glm::vec4 rotation{};
-		glm::vec4 scale{1.f, 1.f, 1.f, 1.f};
-};
 
 #endif

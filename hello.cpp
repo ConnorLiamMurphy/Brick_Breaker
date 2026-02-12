@@ -12,5 +12,6 @@ int main(int argc, char** argv) {
     scene.addObject(&car);
     engine.setScene(&scene);
     engine.run();
+    return 0;
 }
 

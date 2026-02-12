@@ -2,10 +2,11 @@
 #define __HPP_GAME_OBJECTS__
 
 #include <SDL3/SDL.h>
+#include <SDL3/SDL_main.h>
 #include <SDL3_image/SDL_image.h>
 #include <algorithm>
-#include <glm/vec4.hpp>
 #include <vector>
+#include <memory>
 
 #include "components.hpp"
 

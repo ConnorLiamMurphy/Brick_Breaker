@@ -2,6 +2,22 @@
 #include "game_objects.hpp"
 
 #include <SDL3/SDL.h>
+#include <SDL3/SDL_main.h>
+
+
+void Scene::addObject(GameObject gameobject) {
+	objects.push_back(gameobject);
+};
+
+void Scene::updateScene(float deltaTime) {
+	for (int i = 0; i < objects.size; ++i) {
+		objects[i].update(DeltaTime)
+	}
+}
+
+void Scene::Scene() {
+	std::vector<GameObject> objects;
+}
 
 // Want to share these.  Easiest (and quick) way
 // is with a static data structure.

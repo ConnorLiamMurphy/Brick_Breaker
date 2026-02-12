@@ -2,6 +2,7 @@
 #include "engine.hpp"
 #include "game_objects.hpp"
 #include <SDL3/SDL.h>
+#include <SDL3/SDL_main.h>
 
 // Constructor
 Car::Car(){

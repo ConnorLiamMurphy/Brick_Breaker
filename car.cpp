@@ -2,14 +2,13 @@
 #include "engine.hpp"
 #include "game_objects.hpp"
 #include <SDL3/SDL.h>
-#include <SDL3/SDL_main.h>
 
 // Constructor
 Car::Car(){
 	// Access the sprite component to get our rectangle
 	// (destination rectangle)
 	auto* spriteComponent = addComponent<SpriteComponent>();
-	spriteComponent->loadSprite(Engine::instance().getRenderer(), "sprite.png");
+	spriteComponent->loadSprite(Engine::instance().getRenderer(), "sprites/sprite.png");
 	rect = spriteComponent->getRect();
 
 }

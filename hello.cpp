@@ -1,6 +1,7 @@
 #include "car.hpp"
 #include "engine.hpp"
 #include "game_objects.hpp"
+#include <SDL3/SDL_main.h>
 
 int main(int argc, char** argv) {
     // Create the objects that make up our game, and start the run.

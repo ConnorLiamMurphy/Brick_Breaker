@@ -1,4 +1,5 @@
 #include "car.hpp"
+#include "paddle.hpp"
 #include "engine.hpp"
 #include "game_objects.hpp"
 #include <SDL3/SDL_main.h>
@@ -9,7 +10,9 @@ int main(int argc, char** argv) {
 
     Scene scene;
     Car car;
+    Paddle paddle;
 
+    scene.addObject(&paddle);
     scene.addObject(&car);
     engine.setScene(&scene);
     engine.run();

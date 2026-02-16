@@ -11,7 +11,7 @@ add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
 add_subdirectory(vendored/SDL_image EXCLUDE_FROM_ALL)
 
 # Create your game executable target as usual
-add_executable(hello WIN32 hello.cpp components.cpp car.cpp engine.cpp game_objects.cpp paddle.cpp)
+add_executable(hello WIN32 hello.cpp components.cpp car.cpp engine.cpp game_objects.cpp paddle.cpp ball.cpp brick.cpp)
 
 # Link to the actual SDL3 library.
 target_link_libraries(hello PRIVATE SDL3_image::SDL3_image SDL3::SDL3)

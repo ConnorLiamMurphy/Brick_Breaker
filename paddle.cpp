@@ -47,6 +47,6 @@ void Paddle::right(float dt) {
 }
 
 void Paddle::pos() {
-	SDL_Log("X: %f", rect->x);
-	SDL_Log("Y: %f", rect->y);
+	SDL_Log("paddle X: %f", rect->x);
+	SDL_Log("paddle Y: %f", rect->y);
 }

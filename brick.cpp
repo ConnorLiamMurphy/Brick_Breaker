@@ -14,7 +14,9 @@ Brick::Brick(int health, int xpos, int ypos) {
 	sprites.push_back("sprites/Brick4.png");
 	sprites.push_back("sprites/Brick5.png");
 	auto* spriteComponent = addComponent<SpriteComponent>();
+	auto* soundComponent = addComponent<SoundComponent>();
 	spriteComponent->loadSprite(Engine::instance().getRenderer(), sprites[this->health-1]);
+	soundComponent->loadSound();
 	rect = spriteComponent->getRect();
 	spriteComponent->setX(this->xpos);
 	spriteComponent->setY(this->ypos);
@@ -35,6 +37,8 @@ void Brick::update(float deltaTime) {
 void Brick::hit(float deltaTime) {
 	health -= 1;
 	SpriteComponent* sprite = this->getComponent<SpriteComponent>();
+	SoundComponent* sound = this->getComponent<SoundComponent>();
+	sound->playSound("sounds/Brick_Break.wav");
 	if (health >= 1) {
 		sprite->loadSprite(Engine::instance().getRenderer(), sprites[health - 1]);
 		sprite->setX(xpos);

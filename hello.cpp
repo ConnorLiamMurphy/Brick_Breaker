@@ -1,4 +1,3 @@
-#include "car.hpp"
 #include "paddle.hpp"
 #include "brick.hpp"
 #include "ball.hpp"
@@ -11,13 +10,13 @@ int main(int argc, char** argv) {
     Engine& engine = Engine::instance();
 
     Scene scene;
-    Car car;
     Paddle paddle;
     Brick brick1 = Brick::Brick(5, 950, 500);
     Brick brick2 = Brick::Brick(4, 950, 450);
     Brick brick3 = Brick::Brick(3, 950, 400);
     Brick brick4 = Brick::Brick(2, 950, 350);
     Brick brick5 = Brick::Brick(1, 950, 300);
+    Ball ball = Ball::Ball();
 
     scene.addObject(&brick1);
     scene.addObject(&brick2);
@@ -25,7 +24,7 @@ int main(int argc, char** argv) {
     scene.addObject(&brick4);
     scene.addObject(&brick5);
     scene.addObject(&paddle);
-    scene.addObject(&car);
+    scene.addObject(&ball);
     engine.setScene(&scene);
     engine.run();
     return 0;

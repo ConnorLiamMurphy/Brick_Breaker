@@ -58,3 +58,17 @@ SDL_FRect* SpriteComponent::getRect(){
 //void TransformComponent::update(float) {
     // empty for now
 //}
+
+void SoundComponent::playSound(char* wav_file) {
+    ma_engine_play_sound(&engine, wav_file, NULL);
+}
+
+
+bool SoundComponent::loadSound() {
+    result = ma_engine_init(NULL, &engine);
+    if (result != MA_SUCCESS) {
+        return false;
+    }
+    return true;
+}
+

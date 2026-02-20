@@ -4,6 +4,7 @@
 #include <functional>
 #include <SDL3/SDL.h>
 #include <unordered_map>
+#include "miniaudio.h"
 
 class GameObject;
 
@@ -46,5 +47,14 @@ class SpriteComponent : public Component {
 		SDL_Texture* sprite = nullptr;
 };
 
+
+class SoundComponent : public Component {
+public:
+	bool loadSound();
+	void playSound(char* wav_file);
+private:
+	ma_result result;
+	ma_engine engine;
+};
 
 #endif

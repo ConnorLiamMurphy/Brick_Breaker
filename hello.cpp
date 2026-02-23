@@ -10,21 +10,17 @@ int main(int argc, char** argv) {
     Engine& engine = Engine::instance();
 
     Scene scene;
-    Paddle paddle;
-    Brick brick1 = Brick::Brick(5, 950, 500);
-    Brick brick2 = Brick::Brick(4, 950, 450);
-    Brick brick3 = Brick::Brick(3, 950, 400);
-    Brick brick4 = Brick::Brick(2, 950, 350);
-    Brick brick5 = Brick::Brick(1, 950, 300);
-    Ball ball = Ball::Ball();
 
-    scene.addObject(&brick1);
-    scene.addObject(&brick2);
-    scene.addObject(&brick3);
-    scene.addObject(&brick4);
-    scene.addObject(&brick5);
-    scene.addObject(&paddle);
-    scene.addObject(&ball);
+    scene.addObject(std::make_unique<Ball>());
+    scene.addObject(std::make_unique<Paddle>());
+    int pos = 300;
+    for (int i = 1; i <= 5; ++i) {
+        scene.addObject(std::make_unique<Brick>(i, 950, pos));
+        pos += 50;
+    }
+
+
+
     engine.setScene(&scene);
     engine.run();
     return 0;

@@ -45,23 +45,41 @@ public:
 
   virtual void update(float deltaTime);
 
+  void destroy() { 
+      destroyed = true; 
+  }
+
+  bool getDestroyed(){ 
+      return destroyed; 
+  }
+
 private:
   std::vector<std::unique_ptr<Component>> components;
+  bool destroyed = false;
 };
 
 // A Scene is a simple collection for game objects. You may also
 // want to keep other information in a scene, like background color, etc.
 class Scene {
     public:
-        void addObject(GameObject *go) { game_objects.push_back(go); }
+        void addObject(std::unique_ptr<GameObject> go) { game_objects.push_back(std::move(go)); }
+
         void updateScene(float deltaTime) {
             for (auto it = game_objects.begin(); it != game_objects.end(); ++it) {
                 (*it)->update(deltaTime);
             }
+
+            game_objects.erase(
+                std::remove_if(game_objects.begin(), game_objects.end(),
+                    [](const std::unique_ptr<GameObject>& obj) {
+                        return obj->getDestroyed();
+                    }),
+                game_objects.end()
+            );
         }
 
     private:
-      std::vector<GameObject *> game_objects;
+      std::vector<std::unique_ptr<GameObject>> game_objects;
 };
 
 #endif

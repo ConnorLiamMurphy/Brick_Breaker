@@ -38,6 +38,7 @@ class SpriteComponent : public Component {
 		SDL_Texture* getSprite();
 		void update(float deltaTime) override;
 		SDL_FRect* getRect();
+		~SpriteComponent() override;
 
 	private:
 		// For convenience we can keep track of the renderer
@@ -52,6 +53,7 @@ class SoundComponent : public Component {
 public:
 	bool loadSound();
 	void playSound(char* wav_file);
+	~SoundComponent() override;
 private:
 	ma_result result;
 	ma_engine engine;

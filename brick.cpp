@@ -46,6 +46,7 @@ void Brick::hit(float deltaTime) {
 	}
 	else {
 		health = 0;
+		this->destroy();
 	}
 	SDL_Log("health: %d", health);
 	

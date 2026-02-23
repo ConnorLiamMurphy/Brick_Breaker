@@ -41,6 +41,13 @@ bool SpriteComponent::loadSprite(SDL_Renderer* renderer, char* path) {
     return sprite != nullptr;
 }
 
+SpriteComponent::~SpriteComponent() {
+    if (sprite) {
+        SDL_DestroyTexture(sprite);
+        sprite = nullptr;
+    }
+}
+
 // Sometimes we might need to get the image.
 SDL_Texture* SpriteComponent::getSprite() {
     return sprite;
@@ -58,6 +65,10 @@ SDL_FRect* SpriteComponent::getRect(){
 //void TransformComponent::update(float) {
     // empty for now
 //}
+
+SoundComponent::~SoundComponent() {
+    ma_engine_uninit(&engine);
+}
 
 void SoundComponent::playSound(char* wav_file) {
     ma_engine_play_sound(&engine, wav_file, NULL);

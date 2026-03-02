@@ -35,6 +35,15 @@ void Engine::run() {
 				Engine::keyEvents.push_back(event);
 			}
 		}
+
+        // Fixed-step physics (cap at a few steps per frame)
+        Uint64 now   = SDL_GetTicks();
+        float  delta = (now - lastTick) / 1000.0f;
+        lastTick     = now;
+        if (delta > 0.05f) delta = 0.05f;
+ 
+        b2World_Step(World::instance().world, delta, 4);
+
  
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);

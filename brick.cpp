@@ -20,6 +20,20 @@ Brick::Brick(int health, int xpos, int ypos) {
 	rect = spriteComponent->getRect();
 	spriteComponent->setX(this->xpos);
 	spriteComponent->setY(this->ypos);
+
+    // Create body, send to physics world to get body id
+    b2BodyDef bd = b2DefaultBodyDef();
+    bd.type = b2_staticBody;
+    bd.position = {xpos/PPM, (WINDOW_H - ypos)/PPM};
+    this->body = World::instance().createBody(bd);
+
+    // Need to translate to physics engine lengths
+    b2Polygon box = b2MakeBox(8,4);
+    b2ShapeDef sd = b2DefaultShapeDef();
+    sd.density = 1.0f;
+    sd.material.restitution = 1.0f;
+    sd.material.friction = 0.0f;
+    b2CreatePolygonShape(body, &sd, &box);
 }
 
 void Brick::update(float deltaTime) {
@@ -53,6 +67,11 @@ void Brick::hit(float deltaTime) {
 }
 
 void Brick::pos() {
+    b2Vec2 pos = b2Body_GetPosition(this->body);
+    int cx = toPixX(pos.x);
+    int cy = toPixY(pos.y);
+    this->rect->x = cx;
+    this->rect->y = cy;
 	SDL_Log("Brick X: %f", rect->x);
 	SDL_Log("Brick Y: %f", rect->y);
 }

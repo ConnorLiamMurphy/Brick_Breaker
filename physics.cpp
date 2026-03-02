@@ -13,7 +13,7 @@ b2BodyId World::createBody(b2BodyDef bd) {
 
 bool World::init() {
     b2WorldDef worldDef = b2DefaultWorldDef();
-    worldDef.gravity = {0.0f, 1.0f};
+    worldDef.gravity = {0.0f, 0.0f};
     this->world = b2CreateWorld(&worldDef);
 
     return true;

@@ -10,7 +10,7 @@
 // Hard coding values for game
 static constexpr int   WINDOW_W     = 800;
 static constexpr int   WINDOW_H     = 600;
-static constexpr float PPM          = 50.0f;   // pixels per meter
+static constexpr float PPM          = 25.0f;   // pixels per meter
 
 static int toPixX(float x) { return static_cast<int>(x * PPM); }
 static int toPixY(float y) { return static_cast<int>(WINDOW_H - y * PPM); }

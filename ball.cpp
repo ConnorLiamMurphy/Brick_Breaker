@@ -13,7 +13,7 @@ Ball::Ball() {
     // Create body, send to physics world to get body id
     b2BodyDef bd = b2DefaultBodyDef();
     bd.type = b2_dynamicBody;
-    bd.position = {950/PPM, (WINDOW_H - 800)/PPM};
+    bd.position = {950/PPM, (WINDOW_H - 700)/PPM};
     this->body = World::instance().createBody(bd);
 
     b2Circle circle;
@@ -29,19 +29,27 @@ Ball::Ball() {
 	spriteComponent->setX(950);
 	spriteComponent->setY(800);
 
+    b2Body_ApplyLinearImpulseToCenter(body, {0.0f, 0.0f}, false);
+
 }
 
 void Ball::update(float deltaTime) {
 	GameObject::update(deltaTime);
-	for (auto it = Engine::keyEvents.begin(); it != Engine::keyEvents.end(); ++it) {
-		if (it->key.key == SDLK_RSHIFT) {
+	/*for (auto it = Engine::keyEvents.begin(); it != Engine::keyEvents.end(); ++it) {
+		if (it->key.key == SDLK_W) {
 			pos();
 		}
-	}
+	}*/
+    pos();
 }
 
 
 void Ball::pos() {
-	SDL_Log("ball X: %f", rect->x);
-	SDL_Log("ball Y: %f", rect->y);
+    b2Vec2 pos = b2Body_GetPosition(this->body);
+    int cx = toPixX(pos.x);
+    int cy = toPixY(pos.y);
+	//SDL_Log("ball X: %f", cx);
+	//SDL_Log("ball Y: %f", cy);
+    rect->x = cx;
+    rect->y = cy;
 }

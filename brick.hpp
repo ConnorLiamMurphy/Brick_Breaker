@@ -2,6 +2,7 @@
 #define		__HPP_BRICK__
 
 #include "game_objects.hpp"
+#include "physics.hpp"
 #include <SDL3/SDL.h>
 #include <vector>
 
@@ -17,6 +18,7 @@ private:
 	std::vector<char*> sprites;
 	int xpos;
 	int ypos;
+    b2BodyId body;
 	
 };
 

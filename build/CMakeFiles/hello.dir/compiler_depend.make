@@ -684,6 +684,7 @@ CMakeFiles/hello.dir/brick.cpp.o: /Users/sphealie/Desktop/CIS-376/Brick_Breaker/
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cwctype \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/exception \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd \
@@ -695,6 +696,7 @@ CMakeFiles/hello.dir/brick.cpp.o: /Users/sphealie/Desktop/CIS-376/Brick_Breaker/
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/new \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ratio \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdbool.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stddef.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdexcept \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdint.h \
@@ -715,6 +717,7 @@ CMakeFiles/hello.dir/brick.cpp.o: /Users/sphealie/Desktop/CIS-376/Brick_Breaker/
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/wctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/i386/_limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/i386/_mcontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/i386/_types.h \
@@ -809,15 +812,24 @@ CMakeFiles/hello.dir/brick.cpp.o: /Users/sphealie/Desktop/CIS-376/Brick_Breaker/
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/wctype.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/__stddef_max_align_t.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/float.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/limits.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdarg.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdbool.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdint.h \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/brick.hpp \
+  _deps/box2d-src/include/box2d/base.h \
+  _deps/box2d-src/include/box2d/box2d.h \
+  _deps/box2d-src/include/box2d/collision.h \
+  _deps/box2d-src/include/box2d/id.h \
+  _deps/box2d-src/include/box2d/math_functions.h \
+  _deps/box2d-src/include/box2d/types.h \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/components.hpp \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/engine.hpp \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/game_objects.hpp \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/miniaudio.h \
+  /Users/sphealie/Desktop/CIS-376/Brick_Breaker/physics.hpp \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/vendored/SDL/include/SDL3/SDL.h \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/vendored/SDL/include/SDL3/SDL_assert.h \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/vendored/SDL/include/SDL3/SDL_asyncio.h \
@@ -3185,6 +3197,7 @@ CMakeFiles/hello.dir/paddle.cpp.o: /Users/sphealie/Desktop/CIS-376/Brick_Breaker
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/errno.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/exception \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/initializer_list \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iosfwd \
@@ -3196,6 +3209,7 @@ CMakeFiles/hello.dir/paddle.cpp.o: /Users/sphealie/Desktop/CIS-376/Brick_Breaker
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/new \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/optional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/ratio \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdbool.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stddef.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdexcept \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/stdint.h \
@@ -3213,6 +3227,7 @@ CMakeFiles/hello.dir/paddle.cpp.o: /Users/sphealie/Desktop/CIS-376/Brick_Breaker
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/wchar.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/ctype.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/errno.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/i386/_limits.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/i386/_mcontext.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/i386/_types.h \
@@ -3306,15 +3321,24 @@ CMakeFiles/hello.dir/paddle.cpp.o: /Users/sphealie/Desktop/CIS-376/Brick_Breaker
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/time.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/wchar.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/__stddef_max_align_t.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/float.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/limits.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdarg.h \
+  /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdbool.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include/stdint.h \
+  _deps/box2d-src/include/box2d/base.h \
+  _deps/box2d-src/include/box2d/box2d.h \
+  _deps/box2d-src/include/box2d/collision.h \
+  _deps/box2d-src/include/box2d/id.h \
+  _deps/box2d-src/include/box2d/math_functions.h \
+  _deps/box2d-src/include/box2d/types.h \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/components.hpp \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/engine.hpp \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/game_objects.hpp \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/miniaudio.h \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/paddle.hpp \
+  /Users/sphealie/Desktop/CIS-376/Brick_Breaker/physics.hpp \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/vendored/SDL/include/SDL3/SDL.h \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/vendored/SDL/include/SDL3/SDL_assert.h \
   /Users/sphealie/Desktop/CIS-376/Brick_Breaker/vendored/SDL/include/SDL3/SDL_asyncio.h \

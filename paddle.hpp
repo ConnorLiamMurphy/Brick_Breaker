@@ -2,6 +2,7 @@
 #define		__HPP_PADDLE__
 
 #include "game_objects.hpp"
+#include "physics.hpp"
 #include <SDL3/SDL.h>
 
 class Paddle: public GameObject {
@@ -14,6 +15,7 @@ public:
 private:
 	SDL_FRect* rect;
 	float pps = 3.0;
+    b2BodyId body;
 };
 
 

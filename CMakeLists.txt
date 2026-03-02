@@ -3,6 +3,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 project(hello)
 
+include(FetchContent)
+
 # set the output directory for built objects.
 # This makes sure that the dynamic library goes into the build directory automatically.
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
@@ -24,10 +26,10 @@ set(BOX2D_UNIT_TESTS OFF CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(box2d)
 
 # Create your game executable target as usual
-add_executable(hello WIN32 hello.cpp components.cpp engine.cpp game_objects.cpp paddle.cpp ball.cpp brick.cpp miniaudio.cpp)
+add_executable(hello WIN32 hello.cpp components.cpp engine.cpp game_objects.cpp paddle.cpp ball.cpp brick.cpp miniaudio.cpp physics.cpp)
 
 # Link to the actual SDL3 library.
-target_link_libraries(hello PRIVATE SDL3_image::SDL3_image SDL3::SDL3)
+target_link_libraries(hello PRIVATE SDL3_image::SDL3_image SDL3::SDL3 box2d)
 
 add_custom_command(TARGET hello POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/sprites $<TARGET_FILE_DIR:hello>/sprites)
 add_custom_command(TARGET hello POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/sounds $<TARGET_FILE_DIR:hello>/sounds)

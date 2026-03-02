@@ -8,6 +8,7 @@
 int main(int argc, char** argv) {
     // Create the objects that make up our game, and start the run.
     Engine& engine = Engine::instance();
+    World& world = World::instance();
 
     Scene scene;
     Paddle paddle;

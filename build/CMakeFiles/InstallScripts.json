@@ -1,0 +1,11 @@
+{
+	"InstallScripts" : 
+	[
+		"/Users/sphealie/Desktop/CIS-376/Brick_Breaker/build/cmake_install.cmake",
+		"/Users/sphealie/Desktop/CIS-376/Brick_Breaker/build/vendored/SDL/cmake_install.cmake",
+		"/Users/sphealie/Desktop/CIS-376/Brick_Breaker/build/vendored/SDL_image/cmake_install.cmake",
+		"/Users/sphealie/Desktop/CIS-376/Brick_Breaker/build/_deps/box2d-build/cmake_install.cmake",
+		"/Users/sphealie/Desktop/CIS-376/Brick_Breaker/build/_deps/box2d-build/src/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

@@ -1,7 +1,9 @@
 #include "ball.hpp"
 #include "engine.hpp"
 #include "game_objects.hpp"
+#include "physics.hpp"
 #include <SDL3/SDL.h>
+#include <box2d/box2d.h>
 
 Ball::Ball() {
 	auto* spriteComponent = addComponent<SpriteComponent>();
@@ -10,6 +12,19 @@ Ball::Ball() {
     
     // Create body, send to physics world to get body id
     b2BodyDef bd = b2DefaultBodyDef();
+    bd.type = b2_dynamicBody;
+    bd.position = {950/PPM, (WINDOW_H - 800)/PPM};
+    this->body = World::instance().createBody(bd);
+
+    b2Circle circle;
+    circle.center = {0.0f, 0.0f};
+    circle.radius = 0.25f;
+    
+    b2ShapeDef sd = b2DefaultShapeDef();
+    sd.density = 1.0f;
+    sd.material.friction = 0.0f;
+    sd.material.restitution = 1.0f;
+    b2CreateCircleShape(this->body, &sd, &circle);
 
 	spriteComponent->setX(950);
 	spriteComponent->setY(800);

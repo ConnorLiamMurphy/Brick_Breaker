@@ -1,11 +1,9 @@
 #include "engine.hpp"
 #include "game_objects.hpp"
+#include "physics.hpp"
 
 #include <SDL3/SDL.h>
-
-
-
-
+#include <box2d/box2d.h>
 
 // Want to share these.  Easiest (and quick) way
 // is with a static data structure.
@@ -18,6 +16,8 @@ SDL_Renderer* Engine::getRenderer() { return this->renderer; };
 void Engine::setScene(Scene* scene) { this->scene = scene; };
 void Engine::run() {
 	running = true;
+    Uint64 lastTick = SDL_GetTicks();
+
 	while (running) {
 		// Clear the events from the last frame first.
 		Engine::keyEvents.clear();
@@ -35,7 +35,7 @@ void Engine::run() {
 				Engine::keyEvents.push_back(event);
 			}
 		}
-
+ 
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 		scene->updateScene(targetFrameTime);
@@ -76,7 +76,7 @@ bool Engine::init() {
 }
 
 void Engine::shutdown() {
-    world.shutdown();
+    World::instance().shutdown();
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 	SDL_Quit();

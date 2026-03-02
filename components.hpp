@@ -5,6 +5,7 @@
 #include <SDL3/SDL.h>
 #include <unordered_map>
 #include "miniaudio.h"
+#include "vector2d.hpp"
 
 class GameObject;
 
@@ -57,6 +58,15 @@ public:
 private:
 	ma_result result;
 	ma_engine engine;
+};
+
+class TransformComponent : public Component {
+public:
+	bool setupTransform(float pps, float x, float y);
+	void update(float deltaTime) override;
+private:
+	float pps;
+	Vector2d position;
 };
 
 #endif

@@ -4,11 +4,15 @@
 #include <SDL3/SDL.h>
 
 Paddle::Paddle() {
+	float x = 950;
+	float y = 850;
 	auto* spriteComponent = addComponent<SpriteComponent>();
+	auto* transformComponent = addComponent<TransformComponent>(); 
+	transformComponent->setupTransform(pps, x, y)
 	spriteComponent->loadSprite(Engine::instance().getRenderer(), "sprites/paddle.png");
 	rect = spriteComponent->getRect();
-	spriteComponent->setX(950);
-	spriteComponent->setY(850);
+	spriteComponent->setX(x);
+	spriteComponent->setY(y);
 
 }
 

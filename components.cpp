@@ -62,9 +62,19 @@ SDL_FRect* SpriteComponent::getRect(){
     return &destRect;
 }
 
-//void TransformComponent::update(float) {
-    // empty for now
-//}
+bool TransformComponent::setupTransform(float pps, float x, float y) {
+    this->pps = pps;
+    this->position = Vector2d(x, y);
+    return true;
+}
+
+void TransformComponent::update(float deltaTime) {
+    Vector2d velocity(0,0);
+    velocity = velocity + pps;
+    position = position + (velocity * deltaTime);
+    return position;
+
+}
 
 SoundComponent::~SoundComponent() {
     ma_engine_uninit(&engine);

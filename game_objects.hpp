@@ -7,6 +7,7 @@
 #include <vector>
 #include <memory>
 
+#include "vector2d.hpp"
 #include "components.hpp"
 
 // Everything is a game object.  Game objects hold components

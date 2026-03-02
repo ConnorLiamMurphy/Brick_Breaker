@@ -7,6 +7,10 @@ Ball::Ball() {
 	auto* spriteComponent = addComponent<SpriteComponent>();
 	spriteComponent->loadSprite(Engine::instance().getRenderer(), "sprites/Ball.png");
 	rect = spriteComponent->getRect();
+    
+    // Create body, send to physics world to get body id
+    b2BodyDef bd = b2DefaultBodyDef();
+
 	spriteComponent->setX(950);
 	spriteComponent->setY(800);
 

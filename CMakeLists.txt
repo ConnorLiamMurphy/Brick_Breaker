@@ -12,6 +12,17 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/$<CONFIGURATION>")
 add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
 add_subdirectory(vendored/SDL_image EXCLUDE_FROM_ALL)
 
+# Box2D
+FetchContent_Declare(
+    box2d
+    GIT_REPOSITORY  https://github.com/erincatto/box2d.git
+    GIT_TAG         v3.1.0
+    GIT_SHALLOW     TRUE
+)
+set(BOX2D_SAMPLES OFF CACHE BOOL "" FORCE)
+set(BOX2D_UNIT_TESTS OFF CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(box2d)
+
 # Create your game executable target as usual
 add_executable(hello WIN32 hello.cpp components.cpp engine.cpp game_objects.cpp paddle.cpp ball.cpp brick.cpp miniaudio.cpp)
 

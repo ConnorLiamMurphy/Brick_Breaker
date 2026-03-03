@@ -72,7 +72,7 @@ void TransformComponent::update(float deltaTime) {
     Vector2d velocity(0,0);
     velocity = velocity + pps;
     position = position + (velocity * deltaTime);
-    return position;
+    //return position;
 
 }
 

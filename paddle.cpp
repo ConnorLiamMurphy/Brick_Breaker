@@ -8,7 +8,7 @@ Paddle::Paddle() {
 	float y = 850;
 	auto* spriteComponent = addComponent<SpriteComponent>();
 	auto* transformComponent = addComponent<TransformComponent>(); 
-	transformComponent->setupTransform(pps, x, y)
+	transformComponent->setupTransform(pps, x, y);
 	spriteComponent->loadSprite(Engine::instance().getRenderer(), "sprites/paddle.png");
 	rect = spriteComponent->getRect();
 	spriteComponent->setX(x);

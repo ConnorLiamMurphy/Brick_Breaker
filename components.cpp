@@ -65,15 +65,58 @@ SDL_FRect* SpriteComponent::getRect(){
 bool TransformComponent::setupTransform(float pps, float x, float y) {
     this->pps = pps;
     this->position = Vector2d(x, y);
+    this->currVelocity = Vector2d(0, 0);
     return true;
 }
 
-void TransformComponent::update(float deltaTime) {
+Vector2d TransformComponent::inputMove(float deltaTime, char input) {
     Vector2d velocity(0,0);
-    velocity = velocity + pps;
+    if (input == 'l') {
+        velocity.X = velocity.X - pps;
+    } else if (input == 'r') {
+        velocity.X = velocity.X + pps;
+    } else if (input == 'u') {
+        velocity.Y = velocity.Y - pps;
+    } else if (input == 'd') {
+        velocity.Y = velocity.Y + pps;
+    }
     position = position + (velocity * deltaTime);
-    //return position;
+    if (position.X <= horizontalClamp.X) {
+        position.X = horizontalClamp.X;
+    }
+    if (position.X >= horizontalClamp.Y) {
+        position.X = horizontalClamp.Y;
+    }
+    return position;
+}
 
+Vector2d TransformComponent::initMove(float deltaTime) {
+    //set up the initial velocity, then use the update function to move the game object along the currVelocity vector.
+    // might involve updating the sprite position like this
+    //(psudo code)
+    //transfomrComponent::update(){
+    //  **code for getting new position**
+    //  owner = getOwner()
+    //  auto* sprite = owner->getComponent>spriteComponent();
+    //  rect = sprite->getrect
+    //  rect.x = position.x
+    //  rect.y = position.y
+    //}
+    return position;
+}
+
+Vector2d TransformComponent::bounce(float deltaTime) {
+    //code for calculating new vector after colliding.
+    //maybe add an operator function in the vector class to calculate new reflection vector (math.pdf slide 22)
+    return position;
+}
+
+void TransformComponent::setClamps(float x1, float x2, float ytop, float ybottom) {
+    //possibly set defualt values for the edge of the screen
+    horizontalClamp.X = x1;
+    horizontalClamp.Y = x2;
+    verticalClamp.X = ytop;
+    verticalClamp.Y = ybottom;
 }
 
 SoundComponent::~SoundComponent() {

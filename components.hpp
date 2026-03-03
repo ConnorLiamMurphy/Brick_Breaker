@@ -63,10 +63,17 @@ private:
 class TransformComponent : public Component {
 public:
 	bool setupTransform(float pps, float x, float y);
-	void update(float deltaTime) override;
+	Vector2d inputMove(float deltaTime, char input);
+	Vector2d initMove(float deltaTime);
+	Vector2d bounce(float deltaTime);
+	void setClamps(float x1, float x2, float ytop, float ybottom);
+
 private:
 	float pps;
 	Vector2d position;
+	Vector2d currVelocity;
+	Vector2d horizontalClamp;
+	Vector2d verticalClamp;
 };
 
 #endif

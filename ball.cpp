@@ -19,6 +19,9 @@ void Ball::update(float deltaTime) {
 			pos();
 		}
 	}
+	// need some sort of collision detection which calls the bounce function THEN the hit function of bricks
+
+
 }
 
 

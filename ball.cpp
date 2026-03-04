@@ -16,7 +16,7 @@ Ball::Ball() {
 	spriteComponent->setY(y);
 	spriteComponent->setH(32);
 	spriteComponent->setW(32);
-
+	transformComponent->initMove();
 }
 
 void Ball::update(float deltaTime) {

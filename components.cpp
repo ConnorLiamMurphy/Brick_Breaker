@@ -100,25 +100,34 @@ Vector2d TransformComponent::inputMove(float deltaTime, char input) {
     return position;
 }
 
-Vector2d TransformComponent::initMove(float deltaTime) {
-    //set up the initial velocity, then use the update function to move the game object along the currVelocity vector.
-    // might involve updating the sprite position like this
-    //(psudo code)
-    //transfomrComponent::update(){
-    //  **code for getting new position**
-    //  owner = getOwner()
-    //  auto* sprite = owner->getComponent>spriteComponent();
-    //  rect = sprite->getrect
-    //  rect.x = position.x
-    //  rect.y = position.y
-    //}
-    return position;
+void TransformComponent::update(float dt) {
+    position = position + (currVelocity * dt);
+    GameObject* transOwner = this->getOwner();
+    auto* sprite = transOwner->getComponent<SpriteComponent>();
+    SDL_FRect* rect = sprite->getRect();
+    rect->x = position.X;
+    rect->y = position.Y;
 }
 
-Vector2d TransformComponent::bounce(float deltaTime) {
+void TransformComponent::initMove() {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dist(0, 1);
+
+    int randInt = dist(gen);
+    SDL_Log("%d", randInt);
+    if (randInt == 1) {
+        currVelocity.X = currVelocity.X + pps;
+    }
+    else {
+        currVelocity.X = currVelocity.X - pps;
+    }
+    currVelocity.Y = currVelocity.Y - pps;
+}
+
+void TransformComponent::bounce(float deltaTime) {
     //code for calculating new vector after colliding.
     //maybe add an operator function in the vector class to calculate new reflection vector (math.pdf slide 22)
-    return position;
 }
 
 void TransformComponent::setClamps(float x1, float x2, float ytop, float ybottom) {

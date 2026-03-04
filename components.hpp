@@ -32,6 +32,8 @@ class SpriteComponent : public Component {
 	public:
 		void setX(int x);
 		void setY(int y);
+		void setW(int w);
+		void setH(int h);
 		// Load an image from a file.  Normally we would
 		// probably have multiple images per sprite for
 		// animations.

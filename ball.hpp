@@ -12,6 +12,7 @@ public:
 private:
 	SDL_FRect* rect;
 	float pps = 3.0;
+	void handleCollision();
 };
 
 

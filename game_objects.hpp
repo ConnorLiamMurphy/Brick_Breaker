@@ -78,6 +78,9 @@ class Scene {
                 game_objects.end()
             );
         }
+        std::vector<std::unique_ptr<GameObject>>& getObjects() {
+            return game_objects;
+        }
 
     private:
       std::vector<std::unique_ptr<GameObject>> game_objects;

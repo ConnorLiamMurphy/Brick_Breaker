@@ -20,6 +20,16 @@ void SpriteComponent::setY(int y) {
     destRect.y = y;
 }
 
+void SpriteComponent::setW(int w) {
+    destRect.w = w;
+}
+
+void SpriteComponent::setH(int h) {
+    destRect.h = h;
+}
+
+
+
 bool SpriteComponent::loadSprite(SDL_Renderer* renderer, char* path) {
     // Hard coding this for my sample game that uses 64x64 sprites.
     // You may need to adjust and/or have variable sizes.

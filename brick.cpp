@@ -26,7 +26,7 @@ void Brick::update(float deltaTime) {
 	GameObject::update(deltaTime);
 	for (auto it = Engine::keyEvents.begin(); it != Engine::keyEvents.end(); ++it) {
 		if (it->key.key == SDLK_LSHIFT) {
-			hit(deltaTime);
+			hit();
 		}
 		if (it->key.key == SDLK_RSHIFT) {
 			pos();
@@ -34,7 +34,7 @@ void Brick::update(float deltaTime) {
 	}
 }
 
-void Brick::hit(float deltaTime) {
+void Brick::hit() {
 	health -= 1;
 	SpriteComponent* sprite = this->getComponent<SpriteComponent>();
 	SoundComponent* sound = this->getComponent<SoundComponent>();
@@ -48,7 +48,6 @@ void Brick::hit(float deltaTime) {
 		health = 0;
 		this->destroy();
 	}
-	SDL_Log("health: %d", health);
 	
 	
 }

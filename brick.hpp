@@ -10,7 +10,7 @@ public:
 	Brick(int health, int xpos, int ypos);
 	void pos();
 	void update(float deltaTime) override;
-	void hit(float deltaTime);
+	void hit();
 private:
 	SDL_FRect* rect;
 	int health;

@@ -14,6 +14,8 @@ Paddle::Paddle() {
 	rect = spriteComponent->getRect();
 	spriteComponent->setX(x);
 	spriteComponent->setY(y);
+	spriteComponent->setH(25);
+	spriteComponent->setW(100);
 
 }
 

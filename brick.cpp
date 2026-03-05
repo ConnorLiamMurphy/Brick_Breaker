@@ -20,6 +20,7 @@ Brick::Brick(int health, int xpos, int ypos) {
 	rect = spriteComponent->getRect();
 	spriteComponent->setX(this->xpos);
 	spriteComponent->setY(this->ypos);
+	spriteComponent->setH(25);
 }
 
 void Brick::update(float deltaTime) {

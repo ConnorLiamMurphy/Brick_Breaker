@@ -6,7 +6,7 @@
 
 Ball::Ball() {
 	float x = 965;
-	float y = 800;
+	float y = 1100;
 	auto* spriteComponent = addComponent<SpriteComponent>();
 	auto* transformComponent = addComponent<TransformComponent>();
 	transformComponent->setupTransform(pps, x, y);
@@ -51,12 +51,36 @@ void Ball::handleCollision(float dt) {
 			if (((oRect->x <= rect->x && rect->x <= ox2) && (oRect->y <= rect->y && rect->y <= oy2))
 				|| (oRect->x <= x2 && x2 <= ox2) && (oRect->y <= y2 && y2 <= oy2)) {
 				if (std::find(colliding.begin(), colliding.end(), objects[i].get()) == colliding.end()) {
+					float left = ox2 - rect->x;
+					float right = x2 - oRect->x;
+					float top = oy2 - rect->y;
+					float bottom = y2 - oRect->y;
+					float lr = std::min(left, right);
+					float bt = std::min(top, bottom);
+					float min = std::min(lr, bt);
+					Vector2d normal;
+					if (min == left) {
+						normal = Vector2d(1, 0);
+						SDL_Log("left");
+					}
+					else if (min == right) {
+						normal = Vector2d(-1, 0);
+						SDL_Log("right");
+					}
+					else if (min == bottom) {
+						normal = Vector2d(0, -1);
+						SDL_Log("bottom");
+					}
+					else if (min == top) {
+						normal = Vector2d(0, 1);
+						SDL_Log("top");
+					}
 					if (Brick* brick = dynamic_cast<Brick*>(objects[i].get())) {
 						brick->hit();
-						transformComponent->bounce(dt);
+						transformComponent->bounce(dt, normal);
 					}
 					else {
-						transformComponent->bounce(dt);
+						transformComponent->bounce(dt, normal);
 					}
 					colliding.push_back(objects[i].get());
 				}

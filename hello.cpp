@@ -2,6 +2,7 @@
 #include "brick.hpp"
 #include "ball.hpp"
 #include "engine.hpp"
+#include "title.hpp"
 #include "game_objects.hpp"
 #include <SDL3/SDL_main.h>
 
@@ -19,6 +20,7 @@ int main(int argc, char** argv) {
         pos += 50;
     }
 
+    scene.addObject(std::make_unique<Title>());
 
 
     engine.setScene(&scene);

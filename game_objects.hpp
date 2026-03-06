@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <vector>
 #include <memory>
+#include <random>
 
 #include "vector2d.hpp"
 #include "components.hpp"

@@ -66,8 +66,9 @@ class TransformComponent : public Component {
 public:
 	bool setupTransform(float pps, float x, float y);
 	Vector2d inputMove(float deltaTime, char input);
-	Vector2d initMove(float deltaTime);
-	Vector2d bounce(float deltaTime);
+	void initMove();
+	void update(float deltaTime) override;
+	void bounce(float deltaTime, Vector2d normal);
 	void setClamps(float x1, float x2, float ytop, float ybottom);
 
 private:

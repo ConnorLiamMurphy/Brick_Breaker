@@ -6,7 +6,9 @@
 #include <algorithm>
 #include <vector>
 #include <memory>
+#include <random>
 
+#include "vector2d.hpp"
 #include "components.hpp"
 
 // Everything is a game object.  Game objects hold components
@@ -76,6 +78,9 @@ class Scene {
                     }),
                 game_objects.end()
             );
+        }
+        std::vector<std::unique_ptr<GameObject>>& getObjects() {
+            return game_objects;
         }
 
     private:

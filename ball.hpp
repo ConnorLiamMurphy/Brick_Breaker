@@ -11,7 +11,9 @@ public:
 	void update(float deltaTime) override;
 private:
 	SDL_FRect* rect;
-	float pps = 3.0;
+	float pps = 0.1;
+	void handleCollision(float);
+	std::vector<GameObject*> colliding;
 };
 
 

@@ -11,13 +11,16 @@ int main(int argc, char** argv) {
     Engine& engine = Engine::instance();
 
     Scene scene;
-
+    
+    scene.addObject(std::make_unique<Wall>(12, 1000, 650, 500));
+    scene.addObject(std::make_unique<Wall>(12, 1000, 1250, 500));
+    scene.addObject(std::make_unique<Wall>(1000, 12, 950, 400));
     scene.addObject(std::make_unique<Ball>());
     scene.addObject(std::make_unique<Paddle>());
-    int pos = 300;
+    int pos = 850;
     for (int i = 1; i <= 5; ++i) {
-        scene.addObject(std::make_unique<Brick>(i, 950, pos));
-        pos += 50;
+        scene.addObject(std::make_unique<Brick>(i, pos, 500));
+        pos += 64;
     }
 
     scene.addObject(std::make_unique<Title>());

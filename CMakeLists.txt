@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
+set(CMAKE_CXX_STANDARD 17)
 project(hello)
 
 # set the output directory for built objects.
@@ -11,7 +12,7 @@ add_subdirectory(vendored/SDL EXCLUDE_FROM_ALL)
 add_subdirectory(vendored/SDL_image EXCLUDE_FROM_ALL)
 
 # Create your game executable target as usual
-add_executable(hello WIN32 hello.cpp components.cpp engine.cpp game_objects.cpp paddle.cpp ball.cpp brick.cpp miniaudio.cpp title.cpp)
+add_executable(hello WIN32 hello.cpp components.cpp engine.cpp game_objects.cpp paddle.cpp ball.cpp brick.cpp miniaudio.cpp wall.cpp title.cpp)
 
 # Link to the actual SDL3 library.
 target_link_libraries(hello PRIVATE SDL3_image::SDL3_image SDL3::SDL3)

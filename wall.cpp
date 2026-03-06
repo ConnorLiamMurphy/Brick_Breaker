@@ -10,7 +10,7 @@ Wall::Wall(int w, int h, int xpos, int ypos) {
     this->xpos = xpos;
     this->ypos = ypos;
     auto* spriteComponent = addComponent<SpriteComponent>();
-    spriteComponent->loadSprite(Engine::instance().getRenderer(), temp); // replace temp with the sprite
+    spriteComponent->loadSprite(Engine::instance().getRenderer(), "sprites/wall.png"); // replace temp with the sprite
     rect = spriteComponent->getRect();
     spriteComponent->setX(this->xpos);
     spriteComponent->setY(this->ypos);

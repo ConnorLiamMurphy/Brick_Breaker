@@ -1,6 +1,7 @@
 #include "paddle.hpp"
 #include "brick.hpp"
 #include "ball.hpp"
+#include "wall.hpp"
 #include "engine.hpp"
 #include "title.hpp"
 #include "game_objects.hpp"
@@ -12,9 +13,9 @@ int main(int argc, char** argv) {
 
     Scene scene;
     
-    scene.addObject(std::make_unique<Wall>(12, 1000, 650, 500));
-    scene.addObject(std::make_unique<Wall>(12, 1000, 1250, 500));
-    scene.addObject(std::make_unique<Wall>(1000, 12, 950, 400));
+    scene.addObject(std::make_unique<Wall>(12, 1000, 638, 200));
+    scene.addObject(std::make_unique<Wall>(12, 1000, 1350, 200));
+    scene.addObject(std::make_unique<Wall>(726, 12, 637, 200));
     scene.addObject(std::make_unique<Ball>());
     scene.addObject(std::make_unique<Paddle>());
     int pos = 850;

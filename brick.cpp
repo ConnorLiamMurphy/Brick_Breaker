@@ -44,6 +44,7 @@ void Brick::hit() {
 		sprite->loadSprite(Engine::instance().getRenderer(), sprites[health - 1]);
 		sprite->setX(xpos);
 		sprite->setY(ypos);
+		sprite->setH(25);
 	}
 	else {
 		health = 0;

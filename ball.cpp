@@ -6,7 +6,7 @@
 
 Ball::Ball() {
 	float x = 965;
-	float y = 1100;
+	float y = 800;
 	auto* spriteComponent = addComponent<SpriteComponent>();
 	auto* transformComponent = addComponent<TransformComponent>();
 	transformComponent->setupTransform(pps, x, y);

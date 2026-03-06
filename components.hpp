@@ -68,7 +68,7 @@ public:
 	Vector2d inputMove(float deltaTime, char input);
 	void initMove();
 	void update(float deltaTime) override;
-	void bounce(float deltaTime, Vector2d normal);
+	void bounce(float deltaTime, Vector2d& normal);
 	void setClamps(float x1, float x2, float ytop, float ybottom);
 
 private:

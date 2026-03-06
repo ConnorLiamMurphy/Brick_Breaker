@@ -125,11 +125,20 @@ void TransformComponent::initMove() {
     currVelocity.Y = currVelocity.Y - pps;
 }
 
-void TransformComponent::bounce(float deltaTime, Vector2d normal) {
+void TransformComponent::bounce(float deltaTime, Vector2d& normal) {
     //code for calculating new vector after colliding.
     //maybe add an operator function in the vector class to calculate new reflection vector (math.pdf slide 22)
     //equation for vector reflection R=V−2(V*N)N V= currVelocity, N = normalized Vector R = reflection vector.
-    SDL_Log("%f, %f", normal.X, normal.Y);
+
+    SDL_Log("Before Bounce: %f, %f", currVelocity.X, currVelocity.Y);
+    SDL_Log("Normal: %f, %f", normal.X, normal.Y);
+
+    float partial = 2 * (currVelocity * normal);
+
+    Vector2d reflection = currVelocity - (normal * partial);
+
+    SDL_Log("After Bounce: %f, %f", reflection.X, reflection.Y);
+    currVelocity = reflection;
 }
 
 void TransformComponent::setClamps(float x1, float x2, float ytop, float ybottom) {

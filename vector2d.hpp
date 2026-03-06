@@ -26,6 +26,10 @@ class Vector2d {
 		Vector2d operator*(float mult) const {
 			return Vector2d(X * mult, Y * mult);
 		}
+
+        float operator*(Vector2d& other) const {
+            return (X * other.X) + (Y * other.Y);
+        }
 };
 
 

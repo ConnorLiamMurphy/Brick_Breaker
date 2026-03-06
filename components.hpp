@@ -5,6 +5,7 @@
 #include <SDL3/SDL.h>
 #include <unordered_map>
 #include "miniaudio.h"
+#include "vector2d.hpp"
 
 class GameObject;
 
@@ -31,6 +32,8 @@ class SpriteComponent : public Component {
 	public:
 		void setX(int x);
 		void setY(int y);
+		void setW(int w);
+		void setH(int h);
 		// Load an image from a file.  Normally we would
 		// probably have multiple images per sprite for
 		// animations.
@@ -57,6 +60,23 @@ public:
 private:
 	ma_result result;
 	ma_engine engine;
+};
+
+class TransformComponent : public Component {
+public:
+	bool setupTransform(float pps, float x, float y);
+	Vector2d inputMove(float deltaTime, char input);
+	void initMove();
+	void update(float deltaTime) override;
+	void bounce(float deltaTime, Vector2d& normal);
+	void setClamps(float x1, float x2, float ytop, float ybottom);
+
+private:
+	float pps;
+	Vector2d position;
+	Vector2d currVelocity;
+	Vector2d horizontalClamp;
+	Vector2d verticalClamp;
 };
 
 #endif

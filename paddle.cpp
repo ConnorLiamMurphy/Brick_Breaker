@@ -4,11 +4,18 @@
 #include <SDL3/SDL.h>
 
 Paddle::Paddle() {
+	float x = 950;
+	float y = 850;
 	auto* spriteComponent = addComponent<SpriteComponent>();
+	auto* transformComponent = addComponent<TransformComponent>(); 
+	transformComponent->setupTransform(pps, x, y);
+	transformComponent->setClamps(650, 1250, 0, 0);
 	spriteComponent->loadSprite(Engine::instance().getRenderer(), "sprites/paddle.png");
 	rect = spriteComponent->getRect();
-	spriteComponent->setX(950);
-	spriteComponent->setY(850);
+	spriteComponent->setX(x);
+	spriteComponent->setY(y);
+	spriteComponent->setH(25);
+	spriteComponent->setW(100);
 
 }
 
@@ -28,22 +35,31 @@ void Paddle::update(float deltaTime) {
 }
 
 void Paddle::left(float dt) {
-	if (rect->x - (pps * dt) > 650) {
-		rect->x -= pps * dt;
-	}
-	else {
-		rect->x = 650;
-	}
+
+	auto* transformComponent = getComponent<TransformComponent>();
+	Vector2d position = transformComponent->inputMove(dt, 'l');
+	rect->x = position.X;
+	rect->y = position.Y;
+	//if (rect->x - (pps * dt) > 650) {
+		//rect->x -= pps * dt;
+	//}
+	//else {
+		//rect->x = 650;
+	//}
 	
 }
 
 void Paddle::right(float dt) {
-	if (rect->x + (pps * dt) < 1250) {
-		rect->x += pps * dt;
-	}
-	else {
-		rect->x = 1250;
-	}
+	auto* transformComponent = getComponent<TransformComponent>();
+	Vector2d position = transformComponent->inputMove(dt, 'r');
+	rect->x = position.X;
+	rect->y = position.Y;
+	//if (rect->x + (pps * dt) < 1250) {
+		//rect->x += pps * dt;
+	//}
+	//else {
+		//rect->x = 1250;
+	//}
 }
 
 void Paddle::pos() {

@@ -122,6 +122,7 @@ void TransformComponent::initMove() {
     else {
         currVelocity.X = currVelocity.X - pps;
     }
+    //currVelocity.X = 0.0;
     currVelocity.Y = currVelocity.Y - pps;
 }
 

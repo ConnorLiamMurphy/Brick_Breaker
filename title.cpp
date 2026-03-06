@@ -22,7 +22,7 @@ void Title::update(float deltaTime)
                 for (auto it = Engine::keyEvents.begin(); it != Engine::keyEvents.end(); ++it) {
                         if (it->key.key == SDLK_SPACE) 
 			{
-                           titleRect->x -= 50000000;
+                            this->destroy();
                         }
                 }
 }

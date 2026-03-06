@@ -18,10 +18,30 @@ int main(int argc, char** argv) {
     scene.addObject(std::make_unique<Wall>(726, 12, 637, 200));
     scene.addObject(std::make_unique<Ball>());
     scene.addObject(std::make_unique<Paddle>());
-    int pos = 850;
-    for (int i = 1; i <= 5; ++i) {
-        scene.addObject(std::make_unique<Brick>(i, pos, 500));
-        pos += 64;
+    int pos = 750;
+    for (int i = 1; i <= 10; ++i) {
+        scene.addObject(std::make_unique<Brick>(1, pos, 500));
+        pos += 50;
+    }
+    pos = 750;
+    for (int i = 1; i <= 10; ++i) {
+        scene.addObject(std::make_unique<Brick>(2, pos, 450));
+        pos += 50;
+    }
+    pos = 750;
+    for (int i = 1; i <= 10; ++i) {
+        scene.addObject(std::make_unique<Brick>(3, pos, 400));
+        pos += 50;
+    }
+    pos = 750;
+    for (int i = 1; i <= 10; ++i) {
+        scene.addObject(std::make_unique<Brick>(4, pos, 350));
+        pos += 50;
+    }
+    pos = 750;
+    for (int i = 1; i <= 10; ++i) {
+        scene.addObject(std::make_unique<Brick>(5, pos, 300));
+        pos += 50;
     }
 
     scene.addObject(std::make_unique<Title>());

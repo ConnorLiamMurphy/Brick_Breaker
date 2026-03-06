@@ -5,7 +5,7 @@
 
 Paddle::Paddle() {
 	float x = 950;
-	float y = 850;
+	float y = 950;
 	auto* spriteComponent = addComponent<SpriteComponent>();
 	auto* transformComponent = addComponent<TransformComponent>(); 
 	transformComponent->setupTransform(pps, x, y);

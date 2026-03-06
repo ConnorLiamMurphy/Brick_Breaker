@@ -16,7 +16,7 @@ Ball::Ball() {
 	spriteComponent->setY(y);
 	spriteComponent->setH(32);
 	spriteComponent->setW(32);
-	transformComponent->initMove();
+	
 }
 
 void Ball::update(float deltaTime) {
@@ -25,6 +25,10 @@ void Ball::update(float deltaTime) {
 	for (auto it = Engine::keyEvents.begin(); it != Engine::keyEvents.end(); ++it) {
 		if (it->key.key == SDLK_RSHIFT) {
 			pos();
+		}
+		if (it->key.key == SDLK_SPACE) {
+			auto* transformComponent = getComponent<TransformComponent>();
+			transformComponent->initMove();
 		}
 	}
 

@@ -13,9 +13,9 @@ int main(int argc, char** argv) {
 
     scene.addObject(std::make_unique<Ball>());
     scene.addObject(std::make_unique<Paddle>());
-    int pos = 300;
+    int pos = 850;
     for (int i = 1; i <= 5; ++i) {
-        scene.addObject(std::make_unique<Brick>(i, 950, pos));
+        scene.addObject(std::make_unique<Brick>(i, pos, 500));
         pos += 50;
     }
 

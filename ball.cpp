@@ -51,10 +51,10 @@ void Ball::handleCollision(float dt) {
 			if (((oRect->x <= rect->x && rect->x <= ox2) && (oRect->y <= rect->y && rect->y <= oy2))
 				|| (oRect->x <= x2 && x2 <= ox2) && (oRect->y <= y2 && y2 <= oy2)) {
 				if (std::find(colliding.begin(), colliding.end(), objects[i].get()) == colliding.end()) {
-					float left = ox2 - rect->x;
-					float right = x2 - oRect->x;
-					float top = oy2 - rect->y;
-					float bottom = y2 - oRect->y;
+					float right = ox2 - rect->x;
+					float left = x2 - oRect->x;
+					float bottom = oy2 - rect->y;
+					float top = y2 - oRect->y;
 					float lr = std::min(left, right);
 					float bt = std::min(top, bottom);
 					float min = std::min(lr, bt);
